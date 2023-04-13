@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: result-service
+    pod-template-hash: 6b55887b68
+  name: result-service
+spec:
+  type: NodePort
+  ports:
+  - port: 5001
+    protocol: TCP
+    targetPort: 80
+    nodePort: 31001
+  selector:
+    app: result-deployment
+    pod-template-hash: 6b55887b68
+status:
+  loadBalancer: {}
